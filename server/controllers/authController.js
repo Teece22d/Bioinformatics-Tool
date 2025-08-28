@@ -1,3 +1,26 @@
+/*
+ * Authentication Controller for Bioinformatics MERN Application
+ * 
+ * Handles user authentication operations including registration, login, and profile retrieval.
+ * Uses JWT (JSON Web Tokens) for stateless authentication and session management.
+ * 
+ * Key Features:
+ * - User registration with duplicate checking (email/username)
+ * - Secure login with password validation
+ * - JWT token generation with configurable expiration
+ * - Current user profile retrieval for authenticated requests
+ * 
+ * Security Notes:
+ * - Passwords are hashed using the User model's comparePassword method
+ * - JWT tokens are signed with environment-configured secrets
+ * - Generic error messages prevent user enumeration attacks
+ * 
+ * Dependencies:
+ * - User model for database operations
+ * - jsonwebtoken library for token management
+ * - Environment variables: JWT_SECRET, JWT_EXPIRE
+ */
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 

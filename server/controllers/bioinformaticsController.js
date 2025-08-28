@@ -1,3 +1,22 @@
+/**
+ * Analysis Controller
+ *
+ * This module handles sequence analysis requests for the bioinformatics application.
+ * It provides two main functionalities:
+ * 1. analyzeSequence: Processes uploaded protein and genome files, runs a sequence
+ *    matching analysis based on a user-defined match percentage, stores results in
+ *    the database, and returns the analysis output.
+ * 2. getAnalysisHistory: Retrieves the analysis history for the authenticated user,
+ *    sorted by most recent analyses.
+ *
+ * Dependencies:
+ * - Analysis model for storing and retrieving analysis data.
+ * - File system operations (fs) for reading uploaded sequence files.
+ * - Path utilities for file management.
+ * - analyzeSequences utility for the actual bioinformatics sequence comparison.
+ */
+
+
 const Analysis = require('../models/Analysis');
 const fs = require('fs').promises;
 const path = require('path');

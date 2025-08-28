@@ -1,7 +1,24 @@
 /**
- * Basic sequence analysis utility for protein-genome matching
- * This is a simplified implementation - you may want to integrate
- * more sophisticated bioinformatics libraries like BioPython equivalent
+ * Sequence Analysis Utility
+ *
+ * This module provides a basic algorithm for comparing a protein sequence
+ * against a genome sequence using a sliding window approach.
+ *
+ * How it works:
+ * 1. Cleans the input sequences by removing whitespace and converting to uppercase.
+ * 2. Iterates through the genome sequence using a window equal to the protein length.
+ * 3. For each window segment, calculates the percentage of matching characters
+ *    compared to the protein sequence (simple positional match, no gaps allowed).
+ * 4. Records any segment that meets or exceeds the minimum similarity threshold.
+ *
+ * Returned result includes:
+ * - totalMatches: Number of genome segments matching the threshold.
+ * - matchDetails: Array of objects with position, matched sequence, and similarity percentage.
+ *
+ * Note:
+ * - This is a simplified linear comparison, not a full alignment algorithm.
+ * - For advanced bioinformatics needs, we will consider Smith-Waterman, Needleman-Wunsch,
+ *   or libraries like Biopython or NCBI BLAST.
  */
 
 const analyzeSequences = async (proteinSequence, genomeSequence, minSimilarity) => {
@@ -25,7 +42,7 @@ const analyzeSequences = async (proteinSequence, genomeSequence, minSimilarity) 
   for (let i = 0; i <= genomeLength - proteinLength; i++) {
     const genomeSegment = cleanGenome.substring(i, i + proteinLength);
     const similarity = calculateSimilarity(cleanProtein, genomeSegment);
-    
+
     if (similarity >= minSimilarity) {
       results.totalMatches++;
       results.matchDetails.push({

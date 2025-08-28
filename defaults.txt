@@ -1,0 +1,21 @@
+commain=COM3
+commdisplay=COM4
+commfpga=COM5
+commautoopen=1
+commsimsocket=0
+I2Cvis=0
+TI Bootloadervis=0
+GPIOvis=0
+UARTvis=0
+SPIvis=0
+Zoom IOvis=0
+Radiovis=0
+MDIOvis=0
+Panelvis=0
+FileIOvis=1
+eventsvis=1
+mainconsolevis=1
+displayconsolevis=1
+comportsvis=1
+
+
